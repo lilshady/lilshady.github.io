@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>30174 template preview</title>
+<title>Idols</title>
 <meta charset="utf-8">
 <link href="css/reset.css" rel="stylesheet" type="text/css" />
 <link href="css/layout.css" rel="stylesheet" type="text/css" />
@@ -10,10 +10,67 @@
 <script type="text/javascript" src="js/cufon-yui.js"></script>
 <script type="text/javascript" src="js/FuturisExtra_400.font.js"></script>
 <script type="text/javascript" src="js/cufon-replace.js"></script>
+<script type="text/javascript" src="js/jquery.galleriffic.js"></script>
+<script type="text/javascript">
+      jQuery(document).ready(function($) {
+         // We only want these styles applied when javascript is enabled
+         $('div.navigation').css({'width' : '701px', 'float' : 'left'});
+         $('div.content-gallery').css('display', 'block');
+   
+         // Initially set opacity on thumbs and add
+         // additional styling for hover effect on thumbs
+         var onMouseOutOpacity = 0.67;
+         $('#thumbs ul.thumbs li').opacityrollover({
+            mouseOutOpacity:   onMouseOutOpacity,
+            mouseOverOpacity:  1.0,
+            fadeSpeed:         'fast',
+            exemptionSelector: '.selected'
+         });
+         
+         // Initialize Advanced Galleriffic Gallery
+         var gallery = $('#thumbs').galleriffic({
+            delay:                     2500,
+            numThumbs:                 3,
+            preloadAhead:              3,
+            enableTopPager:            true,
+            enableBottomPager:         true,
+            maxPagesToShow:            7,
+            imageContainerSel:         '#slideshow',
+            controlsContainerSel:      '#controls',
+            captionContainerSel:       '#caption',
+            loadingContainerSel:       '#loading',
+            renderSSControls:          true,
+            renderNavControls:         true,
+            playLinkText:              'Play Slideshow',
+            pauseLinkText:             'Pause Slideshow',
+            prevLinkText:              'previous',
+            nextLinkText:              'next',
+            nextPageLinkText:          'Next &rsaquo;',
+            prevPageLinkText:          '&lsaquo; Prev',
+            enableHistory:             false,
+            autoStart:                 false,
+            syncTransitions:           true,
+            defaultTransitionDuration: 900,
+            onSlideChange:             function(prevIndex, nextIndex) {
+               // 'this' refers to the gallery, which is an extension of $('#thumbs')
+               this.find('ul.thumbs').children()
+                  .eq(prevIndex).fadeTo('fast', onMouseOutOpacity).end()
+                  .eq(nextIndex).fadeTo('fast', 1.0);
+            },
+            onPageTransitionOut:       function(callback) {
+               this.fadeTo('fast', 0.0, callback);
+            },
+            onPageTransitionIn:        function() {
+               this.fadeTo('fast', 1.0);
+            }
+         });
+      });
+   </script>
+<script type="text/javascript" src="js/jquery.opacityrollover.js"></script>
 <!--[if lt IE 7]>
      <script type="text/javascript" src="js/ie_png.js"></script>
      <script type="text/javascript">
-     ie_png.fix('.png, #twitter, .carousel-box button.prev, .carousel-box button.next');
+     ie_png.fix('.png, #twitter, .carousel-box button.prev, .carousel-box button.next, div.nav-controls a.prev, div.nav-controls a.next');
      </script>
      <link href="css/ie/ie6.css" rel="stylesheet" type="text/css" />
    <![endif]-->
@@ -21,7 +78,7 @@
       <script type="text/javascript" src="js/html5.js"></script>
    <![endif]-->
 </head>
-<body id="page3">
+<body id="page4">
 <div id="tail-top-right"></div>
 <div id="main-tail-ver">
   <div id="main-tail-top">
@@ -30,8 +87,7 @@
         <!-- header -->
         <div id="header-bg">
           <header>
-            <h1><a href="index.html"><span>webstudio</span></a></h1>
-            <a href="#" id="twitter"></a> <strong>need good idea? no standard designs!</strong> </header>
+             </header>
         </div>
         <!-- content -->
         <div id="content-bg">
@@ -41,15 +97,13 @@
                 <article id="column-left">
                   <nav>
                     <ul>
-                      <li><a href="index.html">home</a></li>
-                      <li><a href="index-1.html">about</a></li>
-                      <li class="act"><a href="index-2.html">services</a></li>
-                      <li><a href="index-3.html">portfolio</a></li>
-                      <li><a href="index-4.html">blog</a></li>
-                      <li><a href="index-5.html">contacts</a></li>
+                    <li ><a href="index.html">Home</a></li><br />
+                      <li ><a href="projects-overview.html">Projects</a></li><br />
+                      <li class="act"><a href="idols.html">Idols </a></li><br />
+                      <li><a href="articles.html">Articles and Photos</a></li><br />
                     </ul>
                   </nav>
-                  <div id="phone">1-800 <span>123 45 67</span></div>
+                  
                 </article>
                 <article id="column-right">
                   <div class="content-box">
@@ -57,54 +111,89 @@
                       <div class="top">
                         <div class="bot">
                           <div class="inner">
-                            <div class="wrapper">
-                              <h2>Our Services</h2>
-                              <div class="wrapper">
-                                <article class="col-1">
-                                  <ul class="list">
-                                    <li><a href="#">Layout Design</a></li>
-                                    <li><a href="#">Website Design</a></li>
-                                    <li><a href="#">3D Modelling</a></li>
-                                    <li><a href="#">Logo Design</a></li>
-                                  </ul>
-                                </article>
-                                <article class="col-2">
-                                  <ul class="list">
-                                    <li><a href="#">Graphics</a></li>
-                                    <li><a href="#">Interface</a></li>
-                                    <li><a href="#">Illustration</a></li>
-                                    <li><a href="#">Advertising</a></li>
-                                  </ul>
-                                </article>
-                                <article class="col-3">
-                                  <ul class="list">
-                                    <li><a href="#">Code Optimization</a></li>
-                                    <li><a href="#">Consulting</a></li>
-                                    <li><a href="#">Flash Animation Design</a></li>
-                                    <li><a href="#">Actionscripting</a></li>
-                                  </ul>
-                                </article>
-                                <article class="col-4">
-                                  <ul class="list">
-                                    <li><a href="#">Multimedia Design</a></li>
-                                    <li><a href="#">Icon Design</a></li>
-                                    <li><a href="#">Book Cover Design</a></li>
-                                    <li><a href="#">Website Design</a></li>
-                                  </ul>
-                                </article>
+                            <div class="wrapper-1">
+                              <h2 style=" font-family: '宋体';color:#61B34D">一些我喜欢的。。。</h2>
+                              <!-- Start Advanced Gallery Html Containers -->
+                              <div id="gallery" class="content-gallery">
+                                <div class="wrapper">
+                                  <div class="slideshow-container">
+                                    <div id="loading" class="loader"></div>
+                                    <div id="slideshow" class="slideshow"></div>
+                                  </div>
+                                  <div id="caption" class="caption-container"></div>
+                                </div>
                               </div>
-                              <h2 class="extra">Services Overview</h2>
-                              <ul class="list-3">
-                                <li> <img src="images/3page-img1.jpg" alt="" /> <strong><a href="#">Adipiscing elit praesent vestibulum</a></strong>
-                                  <p>Phasellus porta. Fusce suscipit varius mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio. Morbi nunc odio, gravida at, cursus nec.</p>
-                                  <a href="#" class="link">view works</a> </li>
-                                <li> <img src="images/3page-img2.jpg" alt="" /> <strong><a href="#">Adipiscing elit praesent vestibulum</a></strong>
-                                  <p>Fusce euismod consequat ante. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque sed dolor. Aliquam congue fermentum nisl. Mauris accumsan nulla vel diam. Sed in lacus ut enim adipiscing aliquet.</p>
-                                  <a href="#" class="link">view works</a> </li>
-                                <li> <img src="images/3page-img3.jpg" alt="" /> <strong><a href="#">Adipiscing elit praesent vestibulum</a></strong>
-                                  <p>Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor.</p>
-                                  <a href="#" class="link">view works</a> </li>
-                              </ul>
+                              <div class="wrapper">
+                                <div id="thumbs" class="navigation">
+                                  <ul class="thumbs noscript">
+                                    <li> <a class="thumb" name="leaf" href="images/inter/logo.jpg" title="Title #0"> <img alt="" src="images/inter/cc-1.jpg" /></a>
+                                      <div class="caption">
+                                        <br />
+                                        <div class="work-caption" style=" font-family: '宋体';color:#61B34D">国际米兰</div>
+                                        <h3>这是我最喜欢的足球俱乐部。</h3>
+                                        <div class="image-desc">
+                                          <p >我想我爱上国际米兰大概是从2002年5月5日开始的，那天，国际米兰意甲夺冠失败，罗纳尔多的泪水让我无可救药的爱上了国际米兰。十几年过去了，很多球员来了又走，很多教练来了又走。我也从一个男孩成长为一个男人。2010年的五冠王，让我无比幸福。2011年鸟巢现场看球的经历让我至今难以忘怀。感谢国际米兰这么多年带给我的快乐带给我的悲伤。可以牵挂着你，是多么美好的一件事情。我不会矫情地说我的血液是蓝色的，我只会说：国际米兰，永远在我心中。</p>
+                                         
+                                        </div>
+                                      </div>
+                                    </li>
+                                    <li> <a class="thumb" name="leaf" href="images/LP/new.jpg" title="Title #0"> <img alt="" src="images/LP/big-1.jpg" /> </a>
+                                      <div class="caption"><br />
+                                        <div class="work-caption" style=" font-family: '宋体';color:#61B34D">Linkin Park</div>
+                                        <h3>是他们带我走入欧美音乐的世界</h3>
+                                        <div class="image-desc">
+                                          <p> 当我第一次听到他们的音乐的时候，整个人都沸腾了。他们让我领略到不同的音乐，奇妙的混合，完美的搭配。每首歌都能给人带来无穷的力量。他们的音乐陪伴我走过了初中，高中，大学。每一首歌都听过不知道多少次，从来没有听厌过。</p>
+                                          <ul>
+                                           
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </li>
+                                    <li class="extra"> <a class="thumb" name="leaf" href="images/Nirvana/big.jpg" title="Title #0"> <img alt="" src="images/Nirvana/Logo.jpg" /> </a>
+                                      <div class="caption"><br />
+                                        <div class="work-caption" style=" font-family: '宋体';color:#61B34D">Nirvana</div>
+                                        <h3>感谢他们的音乐。</h3>
+                                        <div class="image-desc">
+                                          <p>听的第一首他们的歌反而是他们翻唱的"where did you sleep last night"，无比迷恋Cobain的嗓音。而被他们的Smells like teen spirit、Come as you are等等彻底征服。他们的那次不插电我看了很多很多次。可惜Cobain选择结束自己的生命，感谢他们给这个世界带来的美妙的音乐。</p>
+                                        
+                                        </div>
+                                      </div>
+                                    </li>
+                                    <li> <a class="thumb" name="leaf" href="images/Eminem/logo-2.jpg" title="Title #0"> <img alt="" src="images/Eminem/logo-1.jpg" /> </a>
+                                      <div class="caption"><br />
+                                        <div class="work-caption" style=" font-family: '宋体';color:#61B34D">Eminem</div>
+                                        <h3>我最喜欢的说唱歌手</h3>
+                                        <div class="image-desc">
+                                          <p>在美国，白人说唱歌手总是一个异类。而Eminem更是他们之中的王者。也许以前的他总是桀骜不驯，无视规则，没心没肺地唱着"without me"。这些年随着他的成熟，随着他对女儿的责任感越来越重，他的歌越来越深刻越来越值得回味。</p>
+                                         
+                                        </div>
+                                      </div>
+                                    </li>
+                                    <li> <a class="thumb" name="leaf" href="images/GD/logo.jpg" title="Title #0"> <img alt="" src="images/GD/logo-1.jpg" /> </a>
+                                      <div class="caption"><br />
+                                        <div class="work-caption" style=" font-family: '宋体';color:#61B34D">Green day</div>
+                                        <h3>忘不了他们的声音</a></h3>
+                                        <div class="image-desc">
+                                          <p>他们的一首"wake me up when september ends"我也不知道自己听过多少遍。他们音乐中的反抗、和平、迷失、怀念都深深影响着一代人。玩摇滚的也许在大家看来很闹很叛逆，但他们却在用自己的方式呼唤着爱和和平。喜欢的乐队还有很多:coldplay、maroon 5、oasis、五月天，这些音乐给予我力量，给予我勇气、陪伴我度过生命中一个个重要的阶段。</p>
+                                        
+                                        </div>
+                                      </div>
+                                    </li>
+                                    <li class="extra"> <a class="thumb" name="leaf" href="images/Batman/big.jpg" title="Title #0"> <img alt="" src="images/Batman/logo.jpg" /> </a>
+                                      <div class="caption" > <br />
+                                        <div class="work-caption" style=" font-family: '宋体';color:#61B34D">Batman</div>
+                                        <h3>每个男生都有英雄梦</h3>
+                                        <div class="image-desc">
+                                          <p>也许把他放在这有一点违和感。但每个男生都有自己的英雄梦。诺兰的蝙蝠侠三部曲是我最喜欢的电影系列。里面的蝙蝠侠用自己的方式默默守护着高谭市的和平，维护着高谭市的正义。即使自己被误解，即使人们把他当做恶人，他仍愿意为人民付出。内心有自己的原则，有自己的信仰，并为此努力付出。还有比这更可爱的超级英雄吗？</p>
+                                        
+                                        </div>
+                                      </div>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                              <div id="controls"></div>
+                              <!-- END Advanced Gallery Html Containers -->
                             </div>
                           </div>
                         </div>
@@ -118,48 +207,21 @@
         </div>
         <!-- footer -->
         <div id="footer-tail">
-          <footer>
+           <footer>
             <div class="inner">
               <div class="wrapper">
                 <div class="block-1">
                   <dl class="list-1">
-                    <dt>Web Studio &copy; 2010</dt>
-                    <dd><a href="index-6.html">Privacy policy</a></dd>
+                    <dt>卢云骋 @ 2013</dt>
+                    <dd>Free For copy</a></dd>
                   </dl>
                   <p>
                     <!-- {%FOOTER_LINK} -->
                   </p>
                 </div>
-                <div class="block-2">
-                  <dl class="list-1">
-                    <dt>Company</dt>
-                    <dd><a href="#">About</a></dd>
-                    <dd><a href="#">Contact us</a></dd>
-                  </dl>
-                </div>
-                <div class="block-3">
-                  <dl class="list-1">
-                    <dt>Why us</dt>
-                    <dd><a href="#">Our Clients</a></dd>
-                    <dd><a href="#">Technology</a></dd>
-                    <dd><a href="#">Web Labs</a></dd>
-                  </dl>
-                </div>
-                <div class="block-4">
-                  <dl class="list-1">
-                    <dt>Support</dt>
-                    <dd><a href="#">Account Center Login</a></dd>
-                    <dd><a href="#">System Status</a></dd>
-                  </dl>
-                </div>
-                <div class="block-5">
-                  <form action="" id="subscribe-form">
-                    <div class="wrapper"> <strong>Newsletter Signup</strong>
-                      <input type="submit" value="" id="subscribe-submit">
-                      <input type="text"  value="enter your e-mail here" onBlur="if(this.value=='') this.value='enter your e-mail here'" onFocus="if(this.value =='enter your e-mail here' ) this.value=''">
-                    </div>
-                  </form>
-                </div>
+              
+                
+                
               </div>
             </div>
           </footer>
